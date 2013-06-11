@@ -5,7 +5,7 @@
         <artifactId>motech</artifactId>
         <groupId>org.motechproject</groupId>
         <version>0.19</version>
-        <relativePath>../../</relativePath>
+        <relativePath>parent-pom.xml</relativePath>
     </parent>
     <groupId>org.motechproject</groupId>
     <artifactId>motech-hello-world</artifactId>
