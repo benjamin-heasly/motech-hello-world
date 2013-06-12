@@ -208,10 +208,6 @@
                         <Blueprint-Enabled>true</Blueprint-Enabled>
                         <Export-Package>
                             org.motechproject.helloworld;version=${project.version},
-                            org.motechproject.helloworld.contract;version=${project.version},
-                            org.motechproject.helloworld.service;version=${project.version},
-                            org.motechproject.helloworld.domain.campaign;version=${project.version},
-                            org.motechproject.helloworld.userspecified;version=${project.version}
                         </Export-Package>
                         <Import-Package>
                             net.sf.cglib.core,
