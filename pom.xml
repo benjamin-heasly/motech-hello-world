@@ -15,33 +15,43 @@
     </properties>
 
     <dependencies>
+        <!-- emit and consume motech events -->
         <dependency>
             <groupId>org.motechproject</groupId>
             <artifactId>motech-platform-event</artifactId>
             <version>${motech.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.9.5</version>
-        </dependency>
+
+        <!-- respond when user hits a url -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.web.servlet</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- Test (includes junit) -->
+        <!-- Test -->
+
+        <!-- test environment with osgi, junit -->
         <dependency>
             <groupId>org.motechproject</groupId>
             <artifactId>org.motechproject.osgi.it</artifactId>
             <version>1.0.2.RELEASE-r014</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- fake motech event relay for testing -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+
+            <!-- java 7 compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -51,6 +61,8 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+
+            <!-- create manifest for osgi loading -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -68,6 +80,8 @@
                     </instructions>
                 </configuration>
             </plugin>
+
+            <!-- copy hello-world bundle along side other motech bundles -->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.5</version>
@@ -96,6 +110,7 @@
     </build>
 
     <repositories>
+        <!-- locate motech dependencies -->
         <repository>
             <id>motech-repo</id>
             <name>MOTECH Maven Repository</name>
