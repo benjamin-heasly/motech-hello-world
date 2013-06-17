@@ -1,22 +1,21 @@
 package org.motechproject.helloworld;
 
-import static org.junit.Assert.*;
-import junit.framework.Assert;
-
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.MockitoAnnotations.initMocks;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
+
 import org.motechproject.event.MotechEvent;
 import org.motechproject.event.listener.EventRelay;
 import org.motechproject.helloworld.domain.EventEmitter;
 import org.motechproject.helloworld.domain.EventEmitterImpl;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.MockitoAnnotations.initMocks;
-
-public class TestEventEmitter {
+public class EventEmitterTest {
 
 	@Mock
 	private EventRelay eventRelay;
@@ -30,7 +29,7 @@ public class TestEventEmitter {
 	}
 
 	@Test
-	public void testEmitterNotNull() {
+	public void emitterNotNull() {
 		assertNotNull(eventEmitter);
 	}
 
@@ -41,6 +40,6 @@ public class TestEventEmitter {
 		eventEmitter.emitEvent();
 		verify(eventRelay).sendEventMessage(motechEventCaptor.capture());
 		MotechEvent motechEvent = motechEventCaptor.getValue();
-		Assert.assertEquals(motechEvent.getSubject(), eventEmitter.getSubject());
+		assertEquals(motechEvent.getSubject(), eventEmitter.getSubject());
 	}
 }
