@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.motechproject.event.MotechEvent;
 import org.motechproject.event.listener.EventRelay;
 import org.motechproject.helloworld.domain.EventEmitter;
-import org.motechproject.helloworld.domain.EventEmitterImpl;
 
 public class EventEmitterTest {
 
@@ -25,16 +24,16 @@ public class EventEmitterTest {
 	@Before
 	public void setUp() {
 		initMocks(this);
-		this.eventEmitter = new EventEmitterImpl(eventRelay);
+		this.eventEmitter = new EventEmitter(eventRelay);
 	}
 
 	@Test
-	public void emitterNotNull() {
+	public void shouldNotBeNullEmitter() {
 		assertNotNull(eventEmitter);
 	}
 
 	@Test
-	public void emittedEvent() {
+	public void shouldEmitEvent() {
 		ArgumentCaptor<MotechEvent> motechEventCaptor = ArgumentCaptor
 				.forClass(MotechEvent.class);
 		eventEmitter.emitEvent();

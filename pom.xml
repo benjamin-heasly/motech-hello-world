@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.motechproject</groupId>
     <artifactId>motech-hello-world</artifactId>
-    <version>0.10-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Hello World</name>
 
@@ -44,6 +44,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <!-- locate motech dependencies -->
+        <repository>
+            <id>motech-repo</id>
+            <name>MOTECH Maven Repository</name>
+            <url>http://nexus.motechproject.org/content/repositories/public</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -105,14 +114,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <!-- locate motech dependencies -->
-        <repository>
-            <id>motech-repo</id>
-            <name>MOTECH Maven Repository</name>
-            <url>http://nexus.motechproject.org/content/repositories/public</url>
-        </repository>
-    </repositories>
-
 </project>

@@ -12,34 +12,32 @@ import java.util.Map;
 import org.motechproject.helloworld.EventKeys;
 
 @Component
-public class EventEmitterImpl implements EventEmitter {
+public class EventEmitter {
 
     private static final String SUBJECT = EventKeys.HELLO_SUBJECT;
-    
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private EventRelay eventRelay;
 
-    public EventEmitterImpl() {
+    public EventEmitter() {
     }
 
-    public EventEmitterImpl(EventRelay eventRelay) {
+    public EventEmitter(EventRelay eventRelay) {
         this.eventRelay = eventRelay;
     }
 
-    @Override
     public void emitEvent() {
         Map<String, Object> helloEventParams = new HashMap<>();
         helloEventParams.put("hello", "world");
         MotechEvent motechEvent = new MotechEvent(SUBJECT, helloEventParams);
         eventRelay.sendEventMessage(motechEvent);
-        
+
         String message = "Emitted an event with subject " + SUBJECT;
         logger.info(message);
     }
 
-    @Override
     public String getSubject() {
         return SUBJECT;
     }
