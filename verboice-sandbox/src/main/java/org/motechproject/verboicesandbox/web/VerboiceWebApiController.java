@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/web-api")
-public class VerboiceCallbackController {
+public class VerboiceWebApiController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
