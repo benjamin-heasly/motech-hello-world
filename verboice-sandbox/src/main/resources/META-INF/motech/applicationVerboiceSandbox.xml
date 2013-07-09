@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="org.motechproject.verboicesandbox" />
+
+    <!-- copy config files from bundle to Motech server config folder (if missing) -->
+    <bean id="settings" class="org.motechproject.server.config.SettingsFacade"
+        autowire="byType">
+        <property name="moduleName" value="verboiceSandbox" />
+        <property name="configFiles">
+            <list>
+                <value>classpath:verboice-sandbox.properties</value>
+            </list>
+        </property>
+        <property name="rawConfigFiles">
+            <list>
+                <value>classpath:verboiceSandboxManifest.xml</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
