@@ -13,7 +13,7 @@
         <property name="moduleName" value="verboiceSandbox" />
         <property name="configFiles">
             <list>
-                <value>classpath:verboice-sandbox.properties</value>
+                <value>classpath:verboiceSandbox.properties</value>
             </list>
         </property>
         <property name="rawConfigFiles">

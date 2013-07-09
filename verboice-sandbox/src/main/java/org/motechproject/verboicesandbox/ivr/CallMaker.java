@@ -41,13 +41,12 @@ public class CallMaker {
         CallRequest callRequest = new CallRequest(phoneNum, callTimeoutSecs,
                 channelName);
 
-        // build Verboice call payload
-        //  note Verboice call flow id
-        //  note status callback URL which hits the ivr-verboice module
+        // build call request payload
+        // note Verboice call flow id
+        // note status callback URL which hits the ivr-verboice module
         String userId = settingsFacade.getProperty("user.Id");
         String callFlowId = settingsFacade.getProperty("verboice.callflow.Id");
-        String extraPayload = settingsFacade
-                .getProperty("verboice.callflow.extra.payload");
+        String extraPayload = settingsFacade.getProperty("ivr.extra.payload");
         String statusCallbackUrl = settingsFacade
                 .getProperty("motech.base.url")
                 + settingsFacade.getProperty("motech.ivr.status.path");
@@ -62,8 +61,8 @@ public class CallMaker {
                 + channelName + " for call flow " + callFlowId;
         logger.info(summary);
         ivrService.initiateCall(callRequest);
-        
+
         // let caller display this summary
-        return(summary);
+        return (summary);
     }
 }
